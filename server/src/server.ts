@@ -1,20 +1,15 @@
-import express from 'express';
+// Server da nossa aplicação
 
-const app = express();
+import express, { request, response } from 'express'; // Biblioteca Express - microframework para lidar com rotas (url)
 
-app.get('/users', (request, response) => {
-    console.log('Listagem de usuários');
+import routes from './routes' // Importando o arquivo criado para manter todas as nossas rotas organizadas
+// o "./" é usado pois estamos acessando um arquivo da nossa aplicação, neste caso na mesma pasta.
 
-    //JSON
+const app = express(); //Criando minha aplicação
 
-    response.json([
-        "Diego",
-        "Cleiton",
-        "Robson",
-        "Afonso",
-        "Alex"
-    ]);
-});
 
-app.listen(3333);
+app.use(express.json()); // O express só entende o inglês normal, para que entenda Arquivos Json é necessário esse comando.
 
+app.use(routes); //
+
+app.listen(3333); //Porta que queremos executar a aplicação, pode escolher a porta que preferir
