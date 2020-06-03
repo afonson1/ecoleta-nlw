@@ -1,7 +1,6 @@
 // Server da nossa aplicação
 
-import express, { request, response } from 'express'; // Biblioteca Express - microframework para lidar com rotas (url)
-
+import express from 'express'; // Biblioteca Express - microframework para lidar com rotas (url)
 import routes from './routes' // Importando o arquivo criado para manter todas as nossas rotas organizadas
 // o "./" é usado pois estamos acessando um arquivo da nossa aplicação, neste caso na mesma pasta.
 
