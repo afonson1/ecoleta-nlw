@@ -8,7 +8,7 @@ import knex from './database/connection';
 // Serve para desacoplar minhas rotas do arquivo principal (server.ts) do meu servidor para outro arquivo.
 const routes = express.Router(); 
 
-// Rota para listar todos os itens cadastrados
+// Rota para listar todos os ITEMS cadastrados
 routes.get('/items', async (request, response) => {
     // Selecionar todos os items. SELECT * FROM items;
     // Sempre que formos executar uma query precisamos digitar o 'await' para que espere a execução.
@@ -19,12 +19,41 @@ routes.get('/items', async (request, response) => {
     // 'items.map' percorre todos os itens que retornamos do nosso bd para possamos modificá-los 
     const serializedItems = items.map(item => {
         return {
+            id: item.id,
             title: item.title,
             image_url: `http://localhost:3333/uploads/${item.image}` // Variável "${}"
         }
     });
 
     return response.json(serializedItems);
+});
+
+routes.post('/points', async (request, response) => {
+    // Recurso de desestruturação do javascript
+    const {
+        name,
+        email,
+        whatsapp,
+        latitude,
+        longitude,
+        city,
+        uf,
+        items
+    } = request.body;
+
+    // Recurso de short-sintax
+    await knex('points').insert({
+        image: 'image-fake',
+        name,
+        email,
+        whatsapp,
+        latitude,
+        longitude,
+        city,
+        uf
+    });
+
+    return response.json ({ success: true});
 });
 
 export default routes; // exportando as nossas rotas para que elas possam ser importados no nosso server
