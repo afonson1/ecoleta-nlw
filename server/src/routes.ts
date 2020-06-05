@@ -41,11 +41,8 @@ routes.post('/points', async (request, response) => {
         items
     } = request.body;
 
-    // Criando uma transação, desta maneira só conseguiremos inserir dados na tabela points caso consigamos também inserir na tabela point_items
-    const trx = await knex.transaction();
-    
     // Recurso de short-sintax
-    const insertedIds = await trx('points').insert({
+    const ids = await knex('points').insert({
         image: 'image-fake',
         name,
         email,
@@ -56,16 +53,14 @@ routes.post('/points', async (request, response) => {
         uf
     });
 
-    const point_id = insertedIds[0];
-
     const pointItems = items.map((item_id: number) => {
         return {
             item_id,
-            point_id,
+            point_id: ids[0],
         }
     });
 
-    await trx('point_items').insert(pointItems);
+    await knex('point_items').insert(pointItems);
 
     return response.json ({ success: true});
 });
