@@ -15,9 +15,9 @@ routes.get('/items', async (request, response) => {
     // Sempre que utilizamos o 'await' devemos sinalizar como 'async'.
     const items = await knex('items').select('*');
 
-    // serializar é um processo de transformação de informações para um outro formato mais acessível
-    // 'items.map' percorre todos os itens que retornamos do nosso bd para possamos modificá-los 
-    const serializedItems = items.map(item => {
+    /* serializar é um processo de transformação de informações para um outro formato mais acessível
+    'items.map' percorre todos os itens que retornamos do nosso bd para possamos modificá-los */
+   const serializedItems = items.map(item => {
         return {
             id: item.id,
             title: item.title,
@@ -42,7 +42,7 @@ routes.post('/points', async (request, response) => {
     } = request.body;
 
     // Recurso de short-sintax
-    await knex('points').insert({
+    const ids = await knex('points').insert({
         image: 'image-fake',
         name,
         email,
@@ -53,7 +53,17 @@ routes.post('/points', async (request, response) => {
         uf
     });
 
+    const pointItems = items.map((item_id: number) => {
+        return {
+            item_id,
+            point_id: ids[0],
+        }
+    });
+
+    await knex('point_items').insert(pointItems);
+
     return response.json ({ success: true});
 });
+
 
 export default routes; // exportando as nossas rotas para que elas possam ser importados no nosso server
