@@ -14,6 +14,7 @@ module.exports = {
         - 'database.sqlite' é o nome do nosso banco gerado.*/
     },
     migrations: {
-        diretório: path.resolve(__dirname, 'src', 'database', 'migrations')
-    }
+        directory: path.resolve(__dirname, 'src', 'database', 'migrations')
+    },
+    useNullAsDefault: true,
 };

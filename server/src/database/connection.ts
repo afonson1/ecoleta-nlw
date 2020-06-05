@@ -13,7 +13,8 @@ const connection = knex({
         /* 'resolve' padroniza o caminho, pois dependendo do sistema operacional, podemos ter \ ou /, i.e.. 
         O "__dirname" retorna o caminho para o diretório do arquivo que está executando ele.
         'database.sqlite' é o nome do nosso banco gerado.*/
-    }
+    },
+    useNullAsDefault: true,
 });
 
 export default connection;
