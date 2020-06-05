@@ -16,3 +16,5 @@ RODAR A APLICAÇÃO: 'npm run dev'
     obs2.: O comando 'dev' está descrito no arquivo "package.json"
 
 RODAS AS MIGRATIONS: 'npm  run knex:migrate'
+    obs.: O comando 'dev' está descrito no arquivo "package.json"
+    Em caso de erro executar: 'npx knex migrate:latest --knexfile knexfile.ts migrate:latest'
