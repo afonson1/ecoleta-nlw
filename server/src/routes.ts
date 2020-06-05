@@ -41,8 +41,10 @@ routes.post('/points', async (request, response) => {
         items
     } = request.body;
 
+    const trx = await knex.transaction();
+
     // Recurso de short-sintax
-    const ids = await knex('points').insert({
+    const ids = await trx('points').insert({
         image: 'image-fake',
         name,
         email,
@@ -60,10 +62,9 @@ routes.post('/points', async (request, response) => {
         }
     });
 
-    await knex('point_items').insert(pointItems);
+    await trx('point_items').insert(pointItems);
 
     return response.json ({ success: true});
 });
-
 
 export default routes; // exportando as nossas rotas para que elas possam ser importados no nosso server
