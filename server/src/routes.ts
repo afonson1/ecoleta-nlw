@@ -14,6 +14,8 @@ const itemsController = new ItemsController();
 routes.get('/items', itemsController.index);
 // Rota para criar um POINT
 routes.post('/points', pointsController.create);
+// Rota para listar POINTS
+routes.get('/points', pointsController.index);
 // Rota para listar um ponto de coleta específico
 routes.get('/points/:id', pointsController.show);
 
