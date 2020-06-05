@@ -1,6 +1,10 @@
 # ecoleta-nlw
  Projeto desenvolvido durante a Next-Level-Week da Rocketseat, entre os dias 01 e 05/06/2020
 
+KNEX
+CORS
+Define quais urls web vão ter acesso a nossa API
+
 COMANDOS BÁSICOS POWERSHELL:
 
 ACESSAR UMA PASTA:
