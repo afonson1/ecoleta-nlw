@@ -15,3 +15,4 @@ RODAR A APLICAÇÃO: 'npm run dev'
     obs.: Lembrando que devemos estar na pasta server.
     obs2.: O comando 'dev' está descrito no arquivo "package.json"
 
+RODAS AS MIGRATIONS: 'npm  run knex:migrate'
