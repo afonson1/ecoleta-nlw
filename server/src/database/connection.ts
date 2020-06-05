@@ -9,7 +9,7 @@ const connection = knex({
     // Precisamos instalar também o SQLite, para isso 'npm install sqlite3' de acordo com a documentação do knex.
     client: "sqlite3",
     connection: {
-        filename: path.resolve(__dirname, 'database.sqlite')
+        filename: path.resolve(__dirname, 'database.sqlite'),
         /* 'resolve' padroniza o caminho, pois dependendo do sistema operacional, podemos ter \ ou /, i.e.. 
         O "__dirname" retorna o caminho para o diretório do arquivo que está executando ele.
         'database.sqlite' é o nome do nosso banco gerado.*/
