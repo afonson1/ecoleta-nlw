@@ -8,6 +8,11 @@ Define quais urls web vão ter acesso a nossa API
 Permite utilizar todas as fontes de ícones mais famosas
 - REACT-ROUTER-DOM
 Pacote para fazer transição entre as telas web. Rotas
+- LEAFLET
+Integrar o mapa. Este é código aberto.
+npm install leaflet react-leaflet.
+- AXIOS
+Biblioteca que é capaz de fazer requisições para o nosso back-end node.
 
 COMANDOS BÁSICOS POWERSHELL:
 
