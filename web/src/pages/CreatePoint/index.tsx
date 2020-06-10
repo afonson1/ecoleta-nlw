@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Map, TileLayer, Marker } from 'react-leaflet';
@@ -9,10 +9,11 @@ import './styles.css';
 import logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
-    
+    const [items, setItems] = useState([]);
+
     useEffect(() => {
-        api.get('items').then(response =>{
-            console.log(response);
+        api.get('items').then(response => {
+            setItems(response.data);
         });
     }, []);
     
@@ -104,30 +105,12 @@ const CreatePoint = () => {
                     </legend>
 
                     <ul className="items-grid">
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
-                            <span>Óleo de cozinha</span>
-                        </li>
+                        {items.map(item => (
+                            <li>
+                                <img src="http://localhost:3333/uploads/baterias.svg" alt="Teste"/>
+                                <span>Óleo de cozinha</span>
+                            </li>
+                        ))}
                     </ul>
 
                 </fieldset>
