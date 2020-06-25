@@ -15,6 +15,8 @@ npm install leaflet react-leaflet.
 Biblioteca que é capaz de fazer requisições para o nosso back-end node.
 - EXPO
 Biblioteca para desenvolver nosso app mobile
+- REACT-NAVIGATOR
+- REACT-GOOGLE-FONTS
 
 COMANDOS BÁSICOS POWERSHELL:
 
@@ -33,3 +35,5 @@ RODAR A APLICAÇÃO: 'npm run dev'
 RODAS AS MIGRATIONS: 'npm  run knex:migrate'
     obs.: O comando 'dev' está descrito no arquivo "package.json"
     Em caso de erro executar: 'npx knex migrate:latest --knexfile knexfile.ts migrate:latest'
+
+RODAR O MOBILE: 'npm starts'
