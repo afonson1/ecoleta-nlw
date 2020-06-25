@@ -13,6 +13,8 @@ Integrar o mapa. Este é código aberto.
 npm install leaflet react-leaflet.
 - AXIOS
 Biblioteca que é capaz de fazer requisições para o nosso back-end node.
+- EXPO
+Biblioteca para desenvolver nosso app mobile
 
 COMANDOS BÁSICOS POWERSHELL:
 
