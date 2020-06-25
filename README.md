@@ -17,6 +17,10 @@ Biblioteca que é capaz de fazer requisições para o nosso back-end node.
 Biblioteca para desenvolver nosso app mobile
 - REACT-NAVIGATOR
 - REACT-GOOGLE-FONTS
+- REACT-NATIVE
+- REACT-NATIVE-NAVIGATION
+- REACT-NATIVE-STACK
+- REACT-NATIVE-MAPS
 
 COMANDOS BÁSICOS POWERSHELL:
 
